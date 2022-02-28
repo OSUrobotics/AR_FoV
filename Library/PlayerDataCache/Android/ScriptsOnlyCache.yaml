@@ -67,8 +67,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
-    - Class: 89
-      Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
     - Class: 108
@@ -126,11 +124,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 14128}
     - Class: 114
-      Script: {instanceID: 16476}
+      Script: {instanceID: 16062}
     - Class: 114
-      Script: {instanceID: 16490}
+      Script: {instanceID: 16076}
     - Class: 114
-      Script: {instanceID: 16504}
+      Script: {instanceID: 16104}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 120
@@ -167,6 +165,8 @@ ScriptsOnlyBuild:
     - Class: 48
       Script: {instanceID: 0}
     - Class: 81
+      Script: {instanceID: 0}
+    - Class: 89
       Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
@@ -2865,4 +2865,4 @@ ScriptsOnlyBuild:
   scenePathNames:
   - Assets/Scenes/HospitalAR.unity
   - Assets/Scenes/laserscanTutorial.unity
-  playerPath: /Users/walidabualafia/Desktop/ready.apk
+  playerPath: C:/Users/Marisa/Documents/Programs/ar_fov.apk
