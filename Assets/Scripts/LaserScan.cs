@@ -40,6 +40,7 @@ public class LaserScan : MonoBehaviour
 	// keeps Track of the index of the laser that should be green( based on hardcoded 1/3(numberlines) + 1)
 	int greenOne;
 	float[] randList;
+	private bool lasersVisible = true;
 
 	void Start()
 	{
@@ -231,5 +232,38 @@ public class LaserScan : MonoBehaviour
 			}
 			yield return new WaitForSeconds(.25f);
 		}
+	}
+	
+	// used by LaserLinesToggle; make lasers visible/invisible
+	// (but laser graph is unaffected - those lines are still visible)
+	public void ToggleLaserVisibility() 
+	{
+		float transparency;
+		Color greenColor = green.color;
+		Color redColor = red.color;
+		LineRenderer linerenderer;
+		
+		if (lasersVisible) transparency = 1f;
+		else transparency = 0f;
+		
+		greenColor.a = transparency;
+		redColor.a = transparency;
+		
+		for (int i = 0; i < lines.Length; i++) 
+		{
+			
+			if (i == greenOne) 
+			{
+				lines[i].GetComponent<LineRenderer>().material.color = greenColor;
+			}
+			else 
+			{
+				lines[i].GetComponent<LineRenderer>().material.color = redColor;
+			}
+			
+			
+		}
+		
+		lasersVisible = !lasersVisible;
 	}
 }

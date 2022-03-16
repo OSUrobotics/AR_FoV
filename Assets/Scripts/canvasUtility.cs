@@ -13,7 +13,7 @@ using UnityEngine.SceneManagement;
 public class canvasUtility : MonoBehaviour
 {
     [Tooltip("Match the name to the UI element")]
-    public GameObject modeText, modeButton, FoVButton, CountText, Cams, SpreadSlider, CountSlider, LinePanel, flipButton, obsButton, tutorialButton;
+    public GameObject modeText, modeButton, FoVButton, CountText, Cams, SpreadSlider, CountSlider, LinePanel, flipButton, obsButton, tutorialButton, LaserLinesToggle;
     // triad of rectangles to set the main camera to show the FoV camera underneath 
     private Rect a, b, _cur;
     // holder var for the main camera
@@ -53,6 +53,7 @@ public class canvasUtility : MonoBehaviour
         }
         border = new UIBorder(_border);
         border.toggleSplit();
+		toggleGraph();
     }
     // the function which en/disables the whole UI, uses _text to test mode so as not to turn on the wrong buttons
     public void toggleUI()
@@ -71,6 +72,7 @@ public class canvasUtility : MonoBehaviour
         flipButton.SetActive(!fov && uiActive ? true : false);
         obsButton.SetActive(!fov && uiActive ? true : false);
         tutorialButton.SetActive(!fov && uiActive ? true : false);
+		LaserLinesToggle.SetActive(!fov && uiActive ? true : false);
         //LinePanel.SetActive(!fov && uiActive ? true : false);
     }
     // splits the screen to show current fov camera
@@ -105,6 +107,10 @@ public class canvasUtility : MonoBehaviour
         flipButton.SetActive(!fov ? true : false);
         obsButton.SetActive(!fov ? true : false);
         tutorialButton.SetActive(!fov ? true : false);
+		LaserLinesToggle.SetActive(!fov ? true : false);
+		
+		// turn graph on in laserscan mode, off in fov mode
+		if (fov && LinePanel.activeSelf || !fov && !LinePanel.activeSelf) toggleGraph(); 
     }
     public void flipHospital()
     {
