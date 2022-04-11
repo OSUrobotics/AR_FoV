@@ -68,6 +68,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
+    - Class: 89
+      Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
     - Class: 108
@@ -168,8 +170,6 @@ ScriptsOnlyBuild:
     - Class: 48
       Script: {instanceID: 0}
     - Class: 81
-      Script: {instanceID: 0}
-    - Class: 89
       Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
@@ -880,7 +880,7 @@ ScriptsOnlyBuild:
     className: CardExpanding2D
   - hash:
       serializedVersion: 2
-      Hash: a25ed1a5ba5cc771be92d6d2d91a2711
+      Hash: 2e7c74d018ab3c06f83fc20e36b2fef5
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: canvasUtility

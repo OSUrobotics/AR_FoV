@@ -32,7 +32,7 @@ public class LaserScan : MonoBehaviour
 	//private string laserskey = "Lasers";
 	//private string anglekey = "Angle";
 	private int defaultLasers = 15;
-	private float defaultAngle = 230.0f;
+	private float defaultAngle = 180.0f;
 	private GameObject[] lines;
 	bool upCount, upAngle, lateStart = false;
 	// materials to switch the laser from red to green and vv
@@ -273,5 +273,22 @@ public class LaserScan : MonoBehaviour
 		lasersVisible = !lasersVisible;
 		if (lasersVisible) Debug.Log("lasers set to visible");
 		else Debug.Log("lasers set to invisible");
+	}
+	
+	public void ResetSliders() 
+	{
+		
+		numberLines = defaultLasers;
+		count.value = (float)defaultLasers;
+		setAngle.value = defaultAngle;
+		
+		int oldGreenOne = greenOne;
+		greenOne = numberLines / 3  +  1;
+			
+		if (lasersVisible) {
+			lines[oldGreenOne].GetComponent<LineRenderer>().material = red;
+			lines[greenOne].GetComponent<LineRenderer>().material = green;	
+		}
+		
 	}
 }
