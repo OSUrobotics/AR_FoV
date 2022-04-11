@@ -53,12 +53,14 @@ public class LaserScan : MonoBehaviour
 		angle = defaultAngle;
 		randList = new float[50];
 		lines = new GameObject[50]; // there are always 50 lasers ready, we just shrink the ones we don't use
+
 		for (int i = 0; i < lines.Length; i++)
 		{
 			lines[i] = Instantiate(linePrefab);
 			lines[i].transform.parent = this.transform;
 			randList[i] = Random.value;
 		}
+		
 		greenOne = numberLines / 3 + 1;
 		lines[greenOne].GetComponent<LineRenderer>().material = green;
 		StartCoroutine(coRandList());
@@ -82,9 +84,14 @@ public class LaserScan : MonoBehaviour
 		{
 			numberLines = (int)count.value;
 			upCount = false;
-			lines[greenOne].GetComponent<LineRenderer>().material = red;
+			int oldGreenOne = greenOne;
 			greenOne = numberLines / 3  +  1;
-			lines[greenOne].GetComponent<LineRenderer>().material = green;
+			
+			if (lasersVisible) {
+				lines[oldGreenOne].GetComponent<LineRenderer>().material = red;
+				lines[greenOne].GetComponent<LineRenderer>().material = green;	
+			}
+		
 		}
 
 		// Bit shift the index of the layer (8) to get a bit mask
@@ -241,10 +248,9 @@ public class LaserScan : MonoBehaviour
 		float transparency;
 		Color greenColor = green.color;
 		Color redColor = red.color;
-		LineRenderer linerenderer;
 		
-		if (lasersVisible) transparency = 1f;
-		else transparency = 0f;
+		if (lasersVisible) transparency = 0f;
+		else transparency = 1f;
 		
 		greenColor.a = transparency;
 		redColor.a = transparency;
@@ -265,5 +271,7 @@ public class LaserScan : MonoBehaviour
 		}
 		
 		lasersVisible = !lasersVisible;
+		if (lasersVisible) Debug.Log("lasers set to visible");
+		else Debug.Log("lasers set to invisible");
 	}
 }
