@@ -271,8 +271,8 @@ public class LaserScan : MonoBehaviour
 		}
 		
 		lasersVisible = !lasersVisible;
-		if (lasersVisible) Debug.Log("lasers set to visible");
-		else Debug.Log("lasers set to invisible");
+		//if (lasersVisible) Debug.Log("lasers set to visible");
+		//else Debug.Log("lasers set to invisible");
 	}
 	
 	public void ResetSliders() 
