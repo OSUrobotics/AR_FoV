@@ -24,7 +24,7 @@ public class fovChecker : MonoBehaviour
     // we will only need to turn the rings on and off, no need to keep more than the renderers
     private Renderer[] _rings;
     private int count;
-    // the integer array allows each camera it's own variable to adjust, couting is done in update
+    // the integer array allows each camera its own variable to adjust, couting is done in update
     private int[] seen;
     // text to display count on
     public Text _text;
